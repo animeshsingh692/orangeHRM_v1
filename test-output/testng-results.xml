@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-11-15T01:59:17 IST" name="Default suite" finished-at="2024-11-15T01:59:43 IST" duration-ms="25986">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestNGRunner@7817fd62]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2024-11-15T01:59:17 IST" name="Default test" finished-at="2024-11-15T01:59:43 IST" duration-ms="25986">
+      <class name="testRunner.TestNGRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:testRunner.TestNGRunner@7817fd62]" started-at="2024-11-15T01:59:17 IST" name="setUpClass" finished-at="2024-11-15T01:59:17 IST" duration-ms="620" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@707e4fe4]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestNGRunner@7817fd62]" started-at="2024-11-15T01:59:18 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-11-15T01:59:26 IST" duration-ms="8069" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["User logs in with valid credentials"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Accounts"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestNGRunner@7817fd62]" started-at="2024-11-15T01:59:26 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-11-15T01:59:33 IST" duration-ms="7149" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["User logs in with invalid credentials"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Accounts"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestNGRunner@7817fd62]" started-at="2024-11-15T01:59:33 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-11-15T01:59:42 IST" duration-ms="9323" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["User requests password reset"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Accounts"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:testRunner.TestNGRunner@7817fd62]" started-at="2024-11-15T01:59:42 IST" name="tearDownClass" finished-at="2024-11-15T01:59:43 IST" duration-ms="778" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- testRunner.TestNGRunner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
