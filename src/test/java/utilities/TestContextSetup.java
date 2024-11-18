@@ -9,9 +9,11 @@ import pageObject.PageObjectManager;
 public class TestContextSetup {
 	public WebDriver driver;
 	public TestBase testBase;
+	public WaitUtils waitUtils;
 	public PageObjectManager pageObjectManager;
 	public TestContextSetup() throws IOException{
 		testBase = new TestBase();
-		pageObjectManager = new PageObjectManager(testBase.webDriverManager());
+		waitUtils = new WaitUtils(testBase.webDriverManager());
+		pageObjectManager = new PageObjectManager(testBase.webDriverManager(), waitUtils);
 	}
 }

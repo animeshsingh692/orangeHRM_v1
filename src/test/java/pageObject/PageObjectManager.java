@@ -3,11 +3,15 @@ package pageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WaitUtils;
+
 public class PageObjectManager {
 	public WebDriver driver;
+	public WaitUtils waitUtils;
 	
-	public PageObjectManager(WebDriver driver) {
+	public PageObjectManager(WebDriver driver, WaitUtils waitUtils) {
 		this.driver = driver;
+		this.waitUtils = waitUtils;
 	}
 	
 	public LoginPage getLoginPage() {
@@ -23,16 +27,16 @@ public class PageObjectManager {
 	}
 	
 	public MyInfoPage getMyInfoPage() {
-		return new MyInfoPage(driver);
+		return new MyInfoPage(driver, waitUtils);
 	}
 	
 	
 	public EmployeeManagementPage getEmployeeManagementPage() {
-		return new EmployeeManagementPage();
+		return new EmployeeManagementPage(driver, waitUtils);
 	}
 	
 	public LeaveManagementPage getLeaveManagementPage() {
-		return new LeaveManagementPage ();
+		return new LeaveManagementPage();
 	}
 	
 	public TimeAndAttendancePage getTimeAndAttendancePage() {

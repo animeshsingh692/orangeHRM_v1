@@ -5,10 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WaitUtils;
+
 public class MyInfoPage {
 	public WebDriver driver;
-	public MyInfoPage(WebDriver driver) {
+	WaitUtils waitUtils;
+	public MyInfoPage(WebDriver driver, WaitUtils waitUtils) {
 		this.driver = driver;
+		this.waitUtils = waitUtils;
 		PageFactory.initElements(driver, this);
 	}
 
@@ -167,20 +171,20 @@ public class MyInfoPage {
 
     // Get the success message text
     public String getSuccessToastMessage() {
-        if (isSuccessToastDisplayed()) {
-            return successToastMessage.getText();
-        } else {
-            return null;  // Return null if the success toast is not displayed
-        }
+    	try {
+    		return waitUtils.waitForElementToBeVisible(successToastMessage).getText();
+    	}catch(Exception e) {
+    		return null;
+    	}
     }
 
     // Get the title of the success message
     public String getSuccessToastTitle() {
-        if (isSuccessToastDisplayed()) {
-            return successToastTitle.getText();
-        } else {
-            return null;  // Return null if the success toast is not displayed
-        }
+    	try {
+    		return waitUtils.waitForElementToBeVisible(successToastTitle).getText();
+    	}catch(Exception e) {
+    		return null;
+    	}
     }
 
     // Click the close button on the success toast
