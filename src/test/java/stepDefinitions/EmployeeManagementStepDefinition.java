@@ -36,7 +36,7 @@ public class EmployeeManagementStepDefinition {
     public void the_user_fills_in_mandatory_fields(String fname, String lname, String id) {
     	employeeManagementPage.enterFirstName(fname);
     	employeeManagementPage.enterLastName(lname);
-    	employeeManagementPage.enterEmployeeId(id);
+    	employeeManagementPage.enterEmployeeIdInput(id);
     }
     @When("clicks the Save button")
     public void clicks_the_Save_button() {
@@ -63,6 +63,8 @@ public class EmployeeManagementStepDefinition {
     @Then("added employee with id {string} is visible in the employee list")
     public void verify_added_employee_visible_in_employee_list(String id) {
     	employeeManagementPage.clickEmployeeListTabButton();
+    	employeeManagementPage.enterEmployeeIdInput(id);
+    	employeeManagementPage.clickSearchButton();
     	boolean status = employeeManagementPage.isEmployeeVisibleInList(id);
     	try{
     		Assert.assertTrue(status);
@@ -83,7 +85,7 @@ public class EmployeeManagementStepDefinition {
     }
     @When("the user enters an invalid ID {string} in the search box")
     public void the_user_enters_an_invalid_ID(String invalidId) {
-    	employeeManagementPage.enterEmployeeId(invalidId);
+    	employeeManagementPage.enterEmployeeIdInput(invalidId);
     }
     @When("clicks the Search button")
     public void clicks_the_Search_button() {
@@ -100,23 +102,15 @@ public class EmployeeManagementStepDefinition {
     	}
     }
 
-    @Given("the user searches for an employee with ID {string}")
+    @When("the user searches for an employee with ID {string}")
     public void the_user_searches_for_an_employee_with_ID(String employeeId) {
-    	loginPage = testContextSetup.pageObjectManager.getLoginPage();
-		loginPage.enterUsername("Admin");
-        loginPage.enterPassword("admin123");
-        loginPage.clickLoginButton();
-        homePage = testContextSetup.pageObjectManager.getHomePage();
-    	homePage.clickPimMenu();
-    	employeeManagementPage = testContextSetup.pageObjectManager.getEmployeeManagementPage();
-    	employeeManagementPage.clickEmployeeListTabButton();
-    	employeeManagementPage.enterEmployeeId(employeeId);
+    	employeeManagementPage.enterEmployeeIdInput(employeeId);
         employeeManagementPage.clickSearchButton();
     }
 
-    @When("the user opens the employee profile")
-    public void the_user_opens_the_employee_profile() {
-    	employeeManagementPage.clickFirstColumn();
+    @When("the user opens the employee profile of {string}")
+    public void the_user_opens_the_employee_profile(String id) {
+    	employeeManagementPage.openEmployeeProfile(id);
     }
 
     @When("updates the Address to {string} and Phone to {string}")
@@ -149,9 +143,9 @@ public class EmployeeManagementStepDefinition {
     @Then("the new details for ID {string} should be visible, Address as {string} and Phone as {string}")
     public void the_new_details_should_be_updated_and_visible(String id, String expectedAddress, String expectedPhone) {
     	employeeManagementPage.clickEmployeeListTabButton();
-    	employeeManagementPage.enterEmployeeId(id);
+    	employeeManagementPage.enterEmployeeIdInput(id);
         employeeManagementPage.clickSearchButton();
-    	employeeManagementPage.clickFirstColumn();
+    	employeeManagementPage.openEmployeeProfile(id);
     	employeeManagementPage.clickContactDetailsSubTab();
     	String actualAddress = employeeManagementPage.getStreet1Input();
     	String actualPhone = employeeManagementPage.getMobileInput();
@@ -180,16 +174,20 @@ public class EmployeeManagementStepDefinition {
     	homePage.clickPimMenu();
     	employeeManagementPage = testContextSetup.pageObjectManager.getEmployeeManagementPage();
     	employeeManagementPage.clickEmployeeListTabButton();
-    	employeeManagementPage.enterEmployeeId(id);
+    	employeeManagementPage.enterEmployeeIdInput(id);
         employeeManagementPage.clickSearchButton();
-        employeeManagementPage.clickFirstColumn();
+        employeeManagementPage.openEmployeeProfile(id);
     }
     @When("the user uploads a document {string}")
     public void the_user_uploads_a_document(String documentName) {
     	String filePath = System.getProperty("user.dir") + "//test-data//" +documentName;
     	employeeManagementPage.clickContactDetailsSubTab();
+    	employeeManagementPage.clickAddAttachementButton();
     	employeeManagementPage.uploadAttachment(filePath);
-    	employeeManagementPage.clickSaveButton();
+    }
+    @When("clicks the Save button of attchment section")
+    public void clicks_the_Save_button_of_attchment_section() {
+    	employeeManagementPage.clickAttachmentSaveButton();
     }
     @Then("the document should be uploaded successfully")
     public void the_document_should_be_uploaded_successfully() {
@@ -211,12 +209,12 @@ public class EmployeeManagementStepDefinition {
     }
     @Then("the document {string} should be visible in the profile of {string}")
     public void verify_the_document_should_be_visible_in_the_profile(String expectedFileName, String id) {
-    	boolean documentDisplayed = employeeManagementPage.isAttachmentAdded(expectedFileName);
     	employeeManagementPage.clickEmployeeListTabButton();
-    	employeeManagementPage.enterEmployeeId(id);
+    	employeeManagementPage.enterEmployeeIdInput(id);
         employeeManagementPage.clickSearchButton();
-        employeeManagementPage.clickFirstColumn();
+        employeeManagementPage.openEmployeeProfile(id);
         employeeManagementPage.clickContactDetailsSubTab();
+        boolean documentDisplayed = employeeManagementPage.isAttachmentAdded(expectedFileName);
     	if(documentDisplayed) {
     		try {
     			Assert.assertTrue(true);

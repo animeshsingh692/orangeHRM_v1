@@ -2,14 +2,13 @@ package pageObject;
 
 import java.util.List;
 
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utilities.WaitUtils;
 
@@ -28,20 +27,20 @@ public class EmployeeManagementPage {
 	@FindBy(xpath="//button[normalize-space()=\"Add\"]")
 	WebElement addButton;
 	// Search Criteria input fields locators
-	@FindBy(xpath="//label[normalize-space()='Employee Id']//following::div/input[1]")
+	@FindBy(xpath="(//label[normalize-space()='Employee Id']//parent::div)//following-sibling::div/input")
 	WebElement employeeIdInput;
-	@FindBy(xpath="//button[normalize-space()=\"Search\"]")
+	@FindBy(xpath="//button[normalize-space()='Search']")
 	WebElement searchButton;
 	// Result grid locators
 	@FindBy(xpath="//hr//following::div/span[@class='oxd-text oxd-text--span']")
 	WebElement recordsFoundText;
 	@FindBy(xpath="//div[@class='oxd-table-card']")
 	List<WebElement> searchResultsList;
-	@FindBy(xpath="(//div[@class='oxd-table-body']//div[contains(@class,'oxd-table-row')])[1]//div[2]")
-	WebElement firstColumn;
+	@FindBy(xpath = "//div[@class='oxd-table-body']//div[contains(@class,'oxd-table-row')]")
+    private List<WebElement> tableRows;
 	@FindBy(xpath="(//div[@class='oxd-table-body']//div[contains(@class,'oxd-table-row')])[1]//div[9]//button[2]")
 	WebElement lastColumn; //delete button
-	@FindBy(xpath="//div[@class='oxd-pagination__ul']")
+	@FindBy(xpath="//ul[@class='oxd-pagination__ul']//li")
 	List<WebElement> paginationItemsList;
 	@FindBy(xpath="//button[contains(@class,'oxd-pagination-page-item--previous-next')]")
 	WebElement paginationNextButton;
@@ -63,8 +62,10 @@ public class EmployeeManagementPage {
 	WebElement mobileInput;
 	@FindBy(xpath="//button[normalize-space()='Add']")
 	WebElement addAttachmentButton;
-	@FindBy(xpath="//div[@class='oxd-file-input-div']")
+	@FindBy(xpath="//input[@type='file']")
 	WebElement attachmentInput;
+	@FindBy(xpath="//button[normalize-space()='Cancel']//following-sibling::button[normalize-space()='Save']")
+	WebElement attachmentSaveButton;
 	
 	// Add Employee tab locators
 	@FindBy(xpath="//a[normalize-space()=\"Add Employee\"]")
@@ -73,8 +74,6 @@ public class EmployeeManagementPage {
 	WebElement firstNameInput;
 	@FindBy(xpath="//input[@placeholder=\"Last Name\"]")
 	WebElement lastNameInput;
-	@FindBy(xpath="//label[normalize-space()='Employee Id']//following::div/input")
-	WebElement empIdInput;
 	@FindBy(xpath="//button[normalize-space()='Save']")
 	WebElement saveButton;
 	
@@ -96,11 +95,14 @@ public class EmployeeManagementPage {
 	    addButton.click();
 	}
 	public void enterEmployeeIdInput(String id) {
-		employeeIdInput.clear();
+		employeeIdInput.click();
+		Actions action = new Actions(driver);
+		action.keyDown(Keys.CONTROL).sendKeys("A").keyDown(Keys.BACK_SPACE)
+		.keyUp(Keys.CONTROL).keyUp(Keys.BACK_SPACE).perform();
 		employeeIdInput.sendKeys(id);
 	}
 	public void clickSearchButton() {
-		searchButton.click();
+		waitUtils.waitForElementToBeClickable(searchButton).click();
 	}
 	//Edit Employee action methods
 	//Contact Details Sub Tab
@@ -108,9 +110,9 @@ public class EmployeeManagementPage {
 		contactDetailsSubTab.click();
 	}
 	public void enterStreet1Input(String street1) {
-//		street1Input.click();
+		street1Input.click();		
 		Actions action = new Actions(driver);
-		action.click(street1Input).keyDown(Keys.CONTROL).sendKeys("A").keyDown(Keys.BACK_SPACE)
+		action.keyDown(Keys.CONTROL).sendKeys("A").keyDown(Keys.BACK_SPACE)
 		.keyUp(Keys.CONTROL).keyUp(Keys.BACK_SPACE).perform();
 		street1Input.sendKeys(street1);
 	}
@@ -131,16 +133,19 @@ public class EmployeeManagementPage {
 		addAttachmentButton.click();
 	}
 	public void uploadAttachment(String filepath) {
-		attachmentInput.clear();
 		attachmentInput.sendKeys(filepath);
 	}
+	public void clickAttachmentSaveButton() {
+		attachmentSaveButton.click();
+	}
 	public boolean isAttachmentAdded(String expectedFileName) {
-    	int searchResultsSize = searchResultsList.size();
-    	for(int i=0; i<searchResultsSize; i++) {
-			String actualFileName = firstColumn.getText();
-			if(expectedFileName.equals(actualFileName)) return true;
-		}
-    	return false;
+    	for (WebElement row : tableRows) {
+            String actualFileName = row.findElement(By.xpath(".//div[2]")).getText(); // Second column
+            if (expectedFileName.equals(actualFileName)) {
+                return true; // Added File is available
+            }
+        }
+    	return false; // Added File is not available
     }
 	//Delete Employee popup action methods
     public void clickPopupCloseButton() {
@@ -164,13 +169,6 @@ public class EmployeeManagementPage {
 		lastNameInput.clear();
 	    lastNameInput.sendKeys(lastName);
 	}
-	public void enterEmployeeId(String empId) {
-		empIdInput.click();
-		Actions action = new Actions(driver);
-		action.keyDown(Keys.CONTROL).sendKeys("A").keyDown(Keys.BACK_SPACE)
-		.keyUp(Keys.CONTROL).keyUp(Keys.BACK_SPACE).perform();
-		empIdInput.sendKeys(empId);
-	}
 	public void clickSaveButton() {
 		Actions action = new Actions(driver);
 		action.moveToElement(saveButton).click(saveButton).perform();
@@ -190,41 +188,52 @@ public class EmployeeManagementPage {
     		return null;
     	}
     }
-    public boolean isEmployeeVisibleInList(String id) {
-    	employeeIdInput.clear();
-		employeeIdInput.sendKeys(id);
-		searchButton.click();
-    	int paginationItemsSize = paginationItemsList.size()-2;
-    	int counter = 0;
-    	int searchResultsSize = searchResultsList.size();
-    	while(counter < paginationItemsSize) {
-    		for(int i=0; i<searchResultsSize; i++) {
-    			String idColumnText = firstColumn.getText();
-    			if(id.equals(idColumnText)) return true;
-    		}
-    		paginationNextButton.click();
-    		counter++;
-    	}
-    	return false;
+    private boolean processEmployeeList(String id, String action) {
+        int paginationItemsSize = paginationItemsList.size() - 1; // Exclude 'Previous' and 'Next'
+        int counter = 1;
+        do {
+            // Iterate through all rows
+            for (WebElement row : tableRows) {
+                String idColumnText = row.findElement(By.xpath(".//div[2]")).getText(); // Second column
+                if (id.equals(idColumnText)) {
+                	switch(action) {
+                	case "openEmployeeRecord": 
+                		row.findElement(By.xpath(".//div[2]")).click();
+                		break;
+                	case "deleteEmployeeRecord":
+                		waitUtils.waitForElementToBeClickable(row.findElement(By.xpath(".//div[9]//button[2]"))).click();
+                		break;
+                	default:
+                		break;
+                	}
+                    return true; // Employee found
+                }
+            }
+            
+            // Click pagination next if available
+            if (paginationNextButton.isDisplayed() && paginationNextButton.isEnabled()) {
+                paginationNextButton.click();
+                counter++;
+            } else {
+                break;
+            }
+        } while (counter <= paginationItemsSize);
+        return false; // Employee not found
     }
-    public void clickFirstColumn() {
-    	firstColumn.click();
+    public boolean isEmployeeVisibleInList(String id) {
+    	return processEmployeeList(id, "");
+    }
+    public void openEmployeeProfile(String id) {
+    	boolean isFound = processEmployeeList(id, "openEmployeeRecord");
+        if (!isFound) {
+            System.out.println("<----------> Employee not present in database");
+        }
     }
     public void clickDeleteIcon(String id) {
-    	int paginationItemsSize = paginationItemsList.size()-2;
-    	int counter = 0;
-    	int searchResultsSize = searchResultsList.size();
-    	while(counter <= paginationItemsSize) {
-    		for(int i=0; i<searchResultsSize; i++) {
-    			String idColumnText = firstColumn.getText();
-    			if(id.equals(idColumnText)) {
-    				lastColumn.click();
-    				return;
-    			}
-    		}
-    		paginationNextButton.click();
-    		counter++;
-    	}
+    	boolean isFound = processEmployeeList(id, "deleteEmployeeRecord");
+        if (!isFound) {
+            System.out.println("<----------> Employee not present in database");
+        }
     }
     public String getRecordsFoundText() {
     	return recordsFoundText.getText();

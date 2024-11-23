@@ -14,22 +14,22 @@ Feature: Employee Management
 		And clicks the Search button
 		Then the error message "No Records Found" should be displayed
 
-	@myTest
 	Scenario: Edit employee details
-		Given the user searches for an employee with ID "JD001"
-		When the user opens the employee profile
-		And updates the Address to "456 Maple St" and Phone to "+9876543"
+		Given the user is on the "Employee List" page
+		When the user searches for an employee with ID "JD001"
+		And the user opens the employee profile of "JD001"
+		And updates the Address to "456 Maple St" and Phone to "+917654322787"
 		And clicks the Save button
 		Then the profile should be updated successfully
 		And the new details for ID "JD001" should be visible, Address as "456 Maple St" and Phone as "+9876543"
 
 	Scenario: Upload document to employee profile
 		Given the user is on the employee profile of "JD001"
-		When the user uploads a document "ID Proof.pdf"
-		And clicks the Save button
+		When the user uploads a document "orangeHRM_v1_TestPlan.docx"
+		And clicks the Save button of attchment section
 		Then the document should be uploaded successfully
 		And the document "orangeHRM_v1_TestPlan.docx" should be visible in the profile of "JD001"
-
+	
 	Scenario: Delete employee record
 		Given the user is on the "Employee List" page
 		When the user searches for an employee with ID "JD001"
