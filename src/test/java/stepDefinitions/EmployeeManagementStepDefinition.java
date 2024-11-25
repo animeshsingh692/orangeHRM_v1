@@ -47,17 +47,9 @@ public class EmployeeManagementStepDefinition {
     	String actualToastMessage = employeeManagementPage.getSuccessToastMessage();
     	String actualToastTitle = employeeManagementPage.getSuccessToastTitle();
     	if(actualToastTitle.equals(expectedToastTitle) && actualToastMessage.equals(expectedToastMessage)) {
-    		try {
-    			Assert.assertTrue(true);
-    		}catch(AssertionError ae) {
-    			System.out.print("Assertion Error");
-    		}
+    		Assert.assertTrue(true);
     	}else {
-    		try {
-    			Assert.assertTrue(false);
-    		}catch(AssertionError ae) {
-    			System.out.print("Assertion Error");
-    		}
+    		Assert.assertTrue(false);
     	}
     }
     @Then("added employee with id {string} is visible in the employee list")
@@ -66,11 +58,7 @@ public class EmployeeManagementStepDefinition {
     	employeeManagementPage.enterEmployeeIdInput(id);
     	employeeManagementPage.clickSearchButton();
     	boolean status = employeeManagementPage.isEmployeeVisibleInList(id);
-    	try{
-    		Assert.assertTrue(status);
-    	}catch(AssertionError ae) {
-    		System.out.print("Assertion Error");
-    	}
+    	Assert.assertTrue(status);
     }
     @Given("the user is on the {string} page")
     public void the_user_is_on_the_page(String pageName) {
@@ -94,12 +82,13 @@ public class EmployeeManagementStepDefinition {
 
     @Then("the error message {string} should be displayed")
     public void the_error_message_should_be_displayed(String expectedMessage) {
-    	String actualMessage = employeeManagementPage.getRecordsFoundText();
-    	try {
-    		Assert.assertEquals(expectedMessage, actualMessage);
-    	}catch(AssertionError ae) {
-    		System.out.println(ae);
-    	}
+    	String actualMessage;
+		try {
+			actualMessage = employeeManagementPage.getRecordsFoundText();
+			Assert.assertEquals(actualMessage, expectedMessage);
+		} catch (InterruptedException e) {
+			System.out.println(e.getMessage());
+		}
     }
 
     @When("the user searches for an employee with ID {string}")
@@ -126,17 +115,9 @@ public class EmployeeManagementStepDefinition {
     	String actualToastMessage = employeeManagementPage.getSuccessToastMessage();
     	String actualToastTitle = employeeManagementPage.getSuccessToastTitle();
     	if(actualToastTitle.equals("Success") && actualToastMessage.equals("Successfully Saved")) {
-    		try {
-    			Assert.assertTrue(true);
-    		}catch(AssertionError ae) {
-    			System.out.print("Assertion Error");
-    		}
+    		Assert.assertTrue(true);
     	}else {
-    		try {
-    			Assert.assertTrue(false);
-    		}catch(AssertionError ae) {
-    			System.out.print("Assertion Error");
-    		}
+    		Assert.assertTrue(false);
     	}
     }
 
@@ -150,17 +131,9 @@ public class EmployeeManagementStepDefinition {
     	String actualAddress = employeeManagementPage.getStreet1Input();
     	String actualPhone = employeeManagementPage.getMobileInput();
     	if(expectedAddress.equals(actualAddress) && expectedPhone.equals(actualPhone)) {
-    		try {
-    			Assert.assertTrue(true);
-    		}catch(AssertionError ae) {
-    			System.out.print("Assertion Error");
-    		}
+    		Assert.assertTrue(true);
     	}else {
-    		try {
-    			Assert.assertTrue(false);
-    		}catch(AssertionError ae) {
-    			System.out.print("Assertion Error");
-    		}
+    		Assert.assertTrue(false);
     	}
     }
 
@@ -194,17 +167,9 @@ public class EmployeeManagementStepDefinition {
     	String actualToastMessage = employeeManagementPage.getSuccessToastMessage();
     	String actualToastTitle = employeeManagementPage.getSuccessToastTitle();
     	if(actualToastTitle.equals("Success") && actualToastMessage.equals("Successfully Saved")) {
-    		try {
-    			Assert.assertTrue(true);
-    		}catch(AssertionError ae) {
-    			System.out.print("Assertion Error");
-    		}
+    		Assert.assertTrue(true);
     	}else {
-    		try {
-    			Assert.assertTrue(false);
-    		}catch(AssertionError ae) {
-    			System.out.print("Assertion Error");
-    		}
+    		Assert.assertTrue(false);
     	}
     }
     @Then("the document {string} should be visible in the profile of {string}")
@@ -215,19 +180,7 @@ public class EmployeeManagementStepDefinition {
         employeeManagementPage.openEmployeeProfile(id);
         employeeManagementPage.clickContactDetailsSubTab();
         boolean documentDisplayed = employeeManagementPage.isAttachmentAdded(expectedFileName);
-    	if(documentDisplayed) {
-    		try {
-    			Assert.assertTrue(true);
-    		}catch(AssertionError ae) {
-    			System.out.print("Assertion Error");
-    		}
-    	}else {
-    		try {
-    			Assert.assertTrue(false);
-    		}catch(AssertionError ae) {
-    			System.out.print("Assertion Error");
-    		}
-    	}
+    	Assert.assertTrue(documentDisplayed);
     }
     @When("clicks the Delete button for ID {string}")
     public void clicks_the_Delete_button(String id) {
@@ -239,19 +192,10 @@ public class EmployeeManagementStepDefinition {
     }
     @Then("the employee record with ID {string} should be removed from the employee list")
     public void the_employee_record_should_be_removed(String employeeId) {
+    	employeeManagementPage.clickEmployeeListTabButton();
+    	employeeManagementPage.enterEmployeeIdInput(employeeId);
+        employeeManagementPage.clickSearchButton();
     	boolean status = employeeManagementPage.isEmployeeVisibleInList(employeeId);
-    	if(!status) {
-    		try {
-    			Assert.assertTrue(true);
-    		}catch(AssertionError ae) {
-    			System.out.print("Assertion Error");
-    		}
-    	}else {
-    		try {
-    			Assert.assertTrue(false);
-    		}catch(AssertionError ae) {
-    			System.out.print("Assertion Error");
-    		}
-    	}
+    	Assert.assertTrue(!status);
     }
 }

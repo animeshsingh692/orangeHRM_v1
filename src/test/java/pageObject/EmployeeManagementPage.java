@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.StaleElementReferenceException;
 
 import utilities.WaitUtils;
 
@@ -89,135 +90,272 @@ public class EmployeeManagementPage {
     
     //Employee List tab action methods
     public void clickEmployeeListTabButton() {
-    	employeeListTabButton.click();
+    	try{
+    		employeeListTabButton.click();
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }
     }
 	public void clickAddButton() {
-	    addButton.click();
+	    try{
+	    	addButton.click();
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }
 	}
 	public void enterEmployeeIdInput(String id) {
-		employeeIdInput.click();
-		Actions action = new Actions(driver);
-		action.keyDown(Keys.CONTROL).sendKeys("A").keyDown(Keys.BACK_SPACE)
-		.keyUp(Keys.CONTROL).keyUp(Keys.BACK_SPACE).perform();
-		employeeIdInput.sendKeys(id);
+		try{
+			employeeIdInput.click();
+			Actions action = new Actions(driver);
+			action.keyDown(Keys.CONTROL).sendKeys("A").keyDown(Keys.BACK_SPACE)
+			.keyUp(Keys.CONTROL).keyUp(Keys.BACK_SPACE).perform();
+			employeeIdInput.sendKeys(id);
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }
 	}
 	public void clickSearchButton() {
-		waitUtils.waitForElementToBeClickable(searchButton).click();
+		try{
+			waitUtils.waitForElementToBeClickable(searchButton).click();
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }
 	}
 	//Edit Employee action methods
 	//Contact Details Sub Tab
 	public void clickContactDetailsSubTab() {
-		contactDetailsSubTab.click();
+		try{
+			contactDetailsSubTab.click();
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }
 	}
 	public void enterStreet1Input(String street1) {
-		street1Input.click();		
-		Actions action = new Actions(driver);
-		action.keyDown(Keys.CONTROL).sendKeys("A").keyDown(Keys.BACK_SPACE)
-		.keyUp(Keys.CONTROL).keyUp(Keys.BACK_SPACE).perform();
-		street1Input.sendKeys(street1);
+		try{
+			street1Input.click();		
+			Actions action = new Actions(driver);
+			action.keyDown(Keys.CONTROL).sendKeys("A").keyDown(Keys.BACK_SPACE)
+			.keyUp(Keys.CONTROL).keyUp(Keys.BACK_SPACE).perform();
+			street1Input.sendKeys(street1);
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }
 	}
 	public void enterMobileInput(String mobile) {
-		mobileInput.click();
-		Actions action = new Actions(driver);
-		action.keyDown(Keys.CONTROL).sendKeys("A").keyDown(Keys.BACK_SPACE)
-		.keyUp(Keys.CONTROL).keyUp(Keys.BACK_SPACE).perform();
-		mobileInput.sendKeys(mobile);
+		try{
+			mobileInput.click();
+			Actions action = new Actions(driver);
+			action.keyDown(Keys.CONTROL).sendKeys("A").keyDown(Keys.BACK_SPACE)
+			.keyUp(Keys.CONTROL).keyUp(Keys.BACK_SPACE).perform();
+			mobileInput.sendKeys(mobile);
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }
 	}
 	public String getStreet1Input() {
-		return street1Input.getText();
+		try{
+			return waitUtils.waitForElementToBeVisible(street1Input).getText();
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        	return "";
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        	return "";
+        }
 	}
 	public String getMobileInput() {
-		return mobileInput.getText();
+		try{
+			return waitUtils.waitForElementToBeVisible(mobileInput).getText();
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());       	
+        }
+		return "";
 	}
 	public void clickAddAttachementButton() {
-		addAttachmentButton.click();
+		try{
+			addAttachmentButton.click();
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }			
 	}
 	public void uploadAttachment(String filepath) {
-		attachmentInput.sendKeys(filepath);
+		try{
+			attachmentInput.sendKeys(filepath);
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }
 	}
 	public void clickAttachmentSaveButton() {
-		attachmentSaveButton.click();
+		try{
+			attachmentSaveButton.click();
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }
 	}
 	public boolean isAttachmentAdded(String expectedFileName) {
-    	for (WebElement row : tableRows) {
-            String actualFileName = row.findElement(By.xpath(".//div[2]")).getText(); // Second column
-            if (expectedFileName.equals(actualFileName)) {
-                return true; // Added File is available
-            }
+		try{
+			for (WebElement row : tableRows) {
+	            String actualFileName = waitUtils.waitForElementToBeVisible(row.findElement(By.xpath(".//div[2]"))).getText(); // Second column
+	            if (expectedFileName.equals(actualFileName)) {
+	                return true; // Added File is available
+	            }
+	        }
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
         }
-    	return false; // Added File is not available
+		return false;
     }
 	//Delete Employee popup action methods
     public void clickPopupCloseButton() {
-    	popupCloseButton.click();
+    	try{
+    		popupCloseButton.click();
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }
     }
     public void clickPopupCancelButton() {
-    	popupCancelButton.click();
+    	try{
+        	popupCancelButton.click();
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }
     }
     public void clickPopupDeleteButton() {
-    	popupDeleteButton.click();
+    	try{
+        	waitUtils.waitForElementToBeClickable(popupDeleteButton).click();
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }
     }
 	//Add Employee tab
 	public void clickAddEmployeeTabButton() {
-		addEmployeeTabButton.click();	
+		try{
+			addEmployeeTabButton.click();
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }	
 	}
 	public void enterFirstName(String firstName) {
-		firstNameInput.clear();
-	    firstNameInput.sendKeys(firstName);
+		try{
+			firstNameInput.clear();
+		    firstNameInput.sendKeys(firstName);
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }
 	}
 	public void enterLastName(String lastName) {
-		lastNameInput.clear();
-	    lastNameInput.sendKeys(lastName);
+		try{
+			lastNameInput.clear();
+		    lastNameInput.sendKeys(lastName);
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }
 	}
 	public void clickSaveButton() {
-		Actions action = new Actions(driver);
-		action.moveToElement(saveButton).click(saveButton).perform();
+		try{
+			saveButton = waitUtils.waitForElementToBeClickable(saveButton);
+			Actions action = new Actions(driver);
+			action.moveToElement(saveButton).click(saveButton).perform();
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e){
+        	System.out.print(e.getMessage());
+        }
 	}
 	//Success message toast popup action methods
     public String getSuccessToastMessage() { // Get the success message text
     	try {
     		return waitUtils.waitForElementToBeVisible(successToastMessage).getText();
-    	}catch(Exception e) {
-    		return null;
+    	}catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e) {
+        	System.out.print(e.getMessage());
     	}
+    	return "";
     }
     public String getSuccessToastTitle() { // Get the title of the success message
     	try {
     		return waitUtils.waitForElementToBeVisible(successToastTitle).getText();
-    	}catch(Exception e) {
-    		return null;
+    	}catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e) {
+        	System.out.print(e.getMessage());
     	}
+    	return "";
     }
     private boolean processEmployeeList(String id, String action) {
         int paginationItemsSize = paginationItemsList.size() - 1; // Exclude 'Previous' and 'Next'
+        if(tableRows.size()==0) return false;
         int counter = 1;
-        do {
-            // Iterate through all rows
-            for (WebElement row : tableRows) {
-                String idColumnText = row.findElement(By.xpath(".//div[2]")).getText(); // Second column
-                if (id.equals(idColumnText)) {
-                	switch(action) {
-                	case "openEmployeeRecord": 
-                		row.findElement(By.xpath(".//div[2]")).click();
-                		break;
-                	case "deleteEmployeeRecord":
-                		waitUtils.waitForElementToBeClickable(row.findElement(By.xpath(".//div[9]//button[2]"))).click();
-                		break;
-                	default:
-                		break;
-                	}
-                    return true; // Employee found
-                }
-            }
-            
-            // Click pagination next if available
-            if (paginationNextButton.isDisplayed() && paginationNextButton.isEnabled()) {
-                paginationNextButton.click();
-                counter++;
-            } else {
-                break;
-            }
-        } while (counter <= paginationItemsSize);
+        try {
+	        do {
+	            // Iterate through all rows
+	            for (WebElement row : tableRows) {
+	                String idColumnText = waitUtils.waitForElementToBeVisible(row.findElement(By.xpath(".//div[2]"))).getText(); // Second column
+	                if (id.equals(idColumnText)) {
+	                	switch(action) {
+	                	case "openEmployeeRecord": 
+	                		waitUtils.waitForElementToBeClickable(row.findElement(By.xpath(".//div[2]"))).click();
+	                		break;
+	                	case "deleteEmployeeRecord":
+	                		waitUtils.waitForElementToBeClickable(row.findElement(By.xpath(".//div[9]//button[2]"))).click();
+	                		break;
+	                	default:
+	                		break;
+	                	}
+	                    return true; // Employee found
+	                }
+	            }
+	            
+	            // Click pagination next if available
+	            if (paginationNextButton.isDisplayed() && paginationNextButton.isEnabled()) {
+	                paginationNextButton.click();
+	                counter++;
+	            } else {
+	                break;
+	            }
+	        } while (counter <= paginationItemsSize);
+        }catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e) {
+        	System.out.print(e.getMessage());
+    	}
         return false; // Employee not found
     }
     public boolean isEmployeeVisibleInList(String id) {
@@ -235,7 +373,15 @@ public class EmployeeManagementPage {
             System.out.println("<----------> Employee not present in database");
         }
     }
-    public String getRecordsFoundText() {
-    	return recordsFoundText.getText();
+    public String getRecordsFoundText() throws InterruptedException {
+    	Thread.sleep(10000);
+    	try {
+    		return waitUtils.waitForElementToBeVisible(recordsFoundText).getText();
+    	}catch(StaleElementReferenceException se) {
+        	System.out.print(se.getMessage());
+        }catch(Exception e) {
+        	System.out.print(e.getMessage());
+    	}
+    	return "";
     }
 }

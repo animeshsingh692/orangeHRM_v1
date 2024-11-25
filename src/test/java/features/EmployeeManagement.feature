@@ -1,5 +1,5 @@
 Feature: Employee Management
-	
+
   Scenario: Add new employee with mandatory fields only
 		Given the user is logged in
 		And navigates to PIM > Add Employee
@@ -13,7 +13,7 @@ Feature: Employee Management
 		When the user enters an invalid ID "InvalidID" in the search box
 		And clicks the Search button
 		Then the error message "No Records Found" should be displayed
-
+	
 	Scenario: Edit employee details
 		Given the user is on the "Employee List" page
 		When the user searches for an employee with ID "JD001"

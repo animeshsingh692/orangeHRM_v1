@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>4/4/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>2/3/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Nov 24 00:17:27 IST 2024</td>
+<td>Started on:</td><td>Mon Nov 25 20:50:09 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>67 seconds (67821 ms)</td>
+<tr><td>Total time:</td><td>387 seconds (387120 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,240 +75,64 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='testRunner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Upload document to employee profile", "Employee Management"</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
-  (Session info: chrome=131.0.6778.86)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Build info: version: &apos;4.25.0&apos;, revision: &apos;8a8aea2337&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [cc46cdc9275b3ba13aa7a97d1c4a309d, findChildElement {using=xpath, value=.//div[2], id=f.F702A575F050B3E7F7A06E4133D092C0.d.88508E59BC5153D6840722DBBE202C9A.e.98}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.86, chrome: {chromedriverVersion: 131.0.6778.85 (3d81e41b6f3a..., userDataDir: C:\Users\anime\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55848}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55848/devtoo..., se:cdpVersion: 131.0.6778.86, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: cc46cdc9275b3ba13aa7a97d1c4a309d
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
-	at org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:211)
-	at pageObject.EmployeeManagementPage.processEmployeeList(EmployeeManagementPage.java:197)
-	at pageObject.EmployeeManagementPage.openEmployeeProfile(EmployeeManagementPage.java:227)
-	at stepDefinitions.EmployeeManagementStepDefinition.the_user_is_on_employee_profile(EmployeeManagementStepDefinition.java:179)
-	at ✽.the user is on the employee profile of &quot;JD001&quot;(file:///C:/Users/anime/eclipse-workspace/Cucumber_Projects/orangeHRM_v1/src/test/java/features/EmployeeManagement.feature:27)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1963943166", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1963943166'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
-  (Session info: chrome=131.0.6778.86)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Build info: version: &apos;4.25.0&apos;, revision: &apos;8a8aea2337&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [cc46cdc9275b3ba13aa7a97d1c4a309d, findChildElement {using=xpath, value=.//div[2], id=f.F702A575F050B3E7F7A06E4133D092C0.d.88508E59BC5153D6840722DBBE202C9A.e.98}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.86, chrome: {chromedriverVersion: 131.0.6778.85 (3d81e41b6f3a..., userDataDir: C:\Users\anime\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55848}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55848/devtoo..., se:cdpVersion: 131.0.6778.86, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: cc46cdc9275b3ba13aa7a97d1c4a309d
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
-	at org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:211)
-	at pageObject.EmployeeManagementPage.processEmployeeList(EmployeeManagementPage.java:197)
-	at pageObject.EmployeeManagementPage.openEmployeeProfile(EmployeeManagementPage.java:227)
-	at stepDefinitions.EmployeeManagementStepDefinition.the_user_is_on_employee_profile(EmployeeManagementStepDefinition.java:179)
-	at ✽.the user is on the employee profile of &quot;JD001&quot;(file:///C:/Users/anime/eclipse-workspace/Cucumber_Projects/orangeHRM_v1/src/test/java/features/EmployeeManagement.feature:27)
+<td title='testRunner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Edit employee details", "Employee Management"</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertTrue(Assert.java:56)
+	at org.testng.Assert.assertTrue(Assert.java:66)
+	at stepDefinitions.EmployeeManagementStepDefinition.the_profile_should_be_updated_successfully(EmployeeManagementStepDefinition.java:120)
+	at ✽.the profile should be updated successfully(file:///C:/Users/anime/eclipse-workspace/Cucumber_Projects/orangeHRM_v1/src/test/java/features/EmployeeManagement.feature:23)
+</pre></div><a href='#' onClick='toggleBox("stack-trace973068874", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace973068874'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertTrue(Assert.java:56)
+	at org.testng.Assert.assertTrue(Assert.java:66)
+	at stepDefinitions.EmployeeManagementStepDefinition.the_profile_should_be_updated_successfully(EmployeeManagementStepDefinition.java:120)
+	at ✽.the profile should be updated successfully(file:///C:/Users/anime/eclipse-workspace/Cucumber_Projects/orangeHRM_v1/src/test/java/features/EmployeeManagement.feature:23)
 </pre></div></td>
-<td>10</td>
+<td>162</td>
 <td>testRunner.TestNGRunner@54d9d12d</td></tr>
 <tr>
 <td title='testRunner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Add new employee with mandatory fields only", "Employee Management"</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
-  (Session info: chrome=131.0.6778.86)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Build info: version: &apos;4.25.0&apos;, revision: &apos;8a8aea2337&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [17af7568080cfedaf766613f734e5c0e, getElementText {id=f.9E318D9E2051E3062E83FDAF4B42F0A5.d.5D1B19120EF2DDE85089312497978C73.e.215}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.86, chrome: {chromedriverVersion: 131.0.6778.85 (3d81e41b6f3a..., userDataDir: C:\Users\anime\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55766}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55766/devtoo..., se:cdpVersion: 131.0.6778.86, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[[[ChromeDriver: chrome on windows (17af7568080cfedaf766613f734e5c0e)] -&gt; xpath: //div[@class=&apos;oxd-table-body&apos;]//div[contains(@class,&apos;oxd-table-row&apos;)]]] -&gt; xpath: .//div[2]]
-Session ID: 17af7568080cfedaf766613f734e5c0e
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:191)
-	at pageObject.EmployeeManagementPage.processEmployeeList(EmployeeManagementPage.java:197)
-	at pageObject.EmployeeManagementPage.isEmployeeVisibleInList(EmployeeManagementPage.java:224)
-	at stepDefinitions.EmployeeManagementStepDefinition.verify_added_employee_visible_in_employee_list(EmployeeManagementStepDefinition.java:68)
-	at ✽.added employee with id &quot;JD001&quot; is visible in the employee list(file:///C:/Users/anime/eclipse-workspace/Cucumber_Projects/orangeHRM_v1/src/test/java/features/EmployeeManagement.feature:9)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1000631907", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1000631907'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
-  (Session info: chrome=131.0.6778.86)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Build info: version: &apos;4.25.0&apos;, revision: &apos;8a8aea2337&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [17af7568080cfedaf766613f734e5c0e, getElementText {id=f.9E318D9E2051E3062E83FDAF4B42F0A5.d.5D1B19120EF2DDE85089312497978C73.e.215}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.86, chrome: {chromedriverVersion: 131.0.6778.85 (3d81e41b6f3a..., userDataDir: C:\Users\anime\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55766}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55766/devtoo..., se:cdpVersion: 131.0.6778.86, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[[[ChromeDriver: chrome on windows (17af7568080cfedaf766613f734e5c0e)] -&gt; xpath: //div[@class=&apos;oxd-table-body&apos;]//div[contains(@class,&apos;oxd-table-row&apos;)]]] -&gt; xpath: .//div[2]]
-Session ID: 17af7568080cfedaf766613f734e5c0e
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:191)
-	at pageObject.EmployeeManagementPage.processEmployeeList(EmployeeManagementPage.java:197)
-	at pageObject.EmployeeManagementPage.isEmployeeVisibleInList(EmployeeManagementPage.java:224)
-	at stepDefinitions.EmployeeManagementStepDefinition.verify_added_employee_visible_in_employee_list(EmployeeManagementStepDefinition.java:68)
-	at ✽.added employee with id &quot;JD001&quot; is visible in the employee list(file:///C:/Users/anime/eclipse-workspace/Cucumber_Projects/orangeHRM_v1/src/test/java/features/EmployeeManagement.feature:9)
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertTrue(Assert.java:56)
+	at org.testng.Assert.assertTrue(Assert.java:66)
+	at stepDefinitions.EmployeeManagementStepDefinition.verify_popup_title_and_message(EmployeeManagementStepDefinition.java:52)
+	at ✽.a success popup should be displayed with &quot;Success&quot; in the title and &quot;Successfully Saved&quot; in the message(file:///C:/Users/anime/eclipse-workspace/Cucumber_Projects/orangeHRM_v1/src/test/java/features/EmployeeManagement.feature:8)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1705281026", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1705281026'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertTrue(Assert.java:56)
+	at org.testng.Assert.assertTrue(Assert.java:66)
+	at stepDefinitions.EmployeeManagementStepDefinition.verify_popup_title_and_message(EmployeeManagementStepDefinition.java:52)
+	at ✽.a success popup should be displayed with &quot;Success&quot; in the title and &quot;Successfully Saved&quot; in the message(file:///C:/Users/anime/eclipse-workspace/Cucumber_Projects/orangeHRM_v1/src/test/java/features/EmployeeManagement.feature:8)
 </pre></div></td>
-<td>12</td>
+<td>73</td>
 <td>testRunner.TestNGRunner@54d9d12d</td></tr>
 <tr>
-<td title='testRunner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Delete employee record", "Employee Management"</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
-  (Session info: chrome=131.0.6778.86)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Build info: version: &apos;4.25.0&apos;, revision: &apos;8a8aea2337&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [b89e7c527cc4e0909a852ef96e724749, findChildElement {using=xpath, value=.//div[2], id=f.776FAA505565AA6E25AE37778A9C592A.d.E2360DBB2FD11F517C9BFE8BB23BCB18.e.100}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.86, chrome: {chromedriverVersion: 131.0.6778.85 (3d81e41b6f3a..., userDataDir: C:\Users\anime\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55881}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55881/devtoo..., se:cdpVersion: 131.0.6778.86, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: b89e7c527cc4e0909a852ef96e724749
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
-	at org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:211)
-	at pageObject.EmployeeManagementPage.processEmployeeList(EmployeeManagementPage.java:197)
-	at pageObject.EmployeeManagementPage.clickDeleteIcon(EmployeeManagementPage.java:233)
-	at stepDefinitions.EmployeeManagementStepDefinition.clicks_the_Delete_button(EmployeeManagementStepDefinition.java:234)
-	at ✽.clicks the Delete button for ID &quot;JD001&quot;(file:///C:/Users/anime/eclipse-workspace/Cucumber_Projects/orangeHRM_v1/src/test/java/features/EmployeeManagement.feature:36)
-</pre></div><a href='#' onClick='toggleBox("stack-trace561133045", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace561133045'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
-  (Session info: chrome=131.0.6778.86)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Build info: version: &apos;4.25.0&apos;, revision: &apos;8a8aea2337&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [b89e7c527cc4e0909a852ef96e724749, findChildElement {using=xpath, value=.//div[2], id=f.776FAA505565AA6E25AE37778A9C592A.d.E2360DBB2FD11F517C9BFE8BB23BCB18.e.100}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.86, chrome: {chromedriverVersion: 131.0.6778.85 (3d81e41b6f3a..., userDataDir: C:\Users\anime\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55881}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55881/devtoo..., se:cdpVersion: 131.0.6778.86, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: b89e7c527cc4e0909a852ef96e724749
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
-	at org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:211)
-	at pageObject.EmployeeManagementPage.processEmployeeList(EmployeeManagementPage.java:197)
-	at pageObject.EmployeeManagementPage.clickDeleteIcon(EmployeeManagementPage.java:233)
-	at stepDefinitions.EmployeeManagementStepDefinition.clicks_the_Delete_button(EmployeeManagementStepDefinition.java:234)
-	at ✽.clicks the Delete button for ID &quot;JD001&quot;(file:///C:/Users/anime/eclipse-workspace/Cucumber_Projects/orangeHRM_v1/src/test/java/features/EmployeeManagement.feature:36)
+<td title='testRunner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Upload document to employee profile", "Employee Management"</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertTrue(Assert.java:56)
+	at org.testng.Assert.assertTrue(Assert.java:66)
+	at stepDefinitions.EmployeeManagementStepDefinition.the_document_should_be_uploaded_successfully(EmployeeManagementStepDefinition.java:172)
+	at ✽.the document should be uploaded successfully(file:///C:/Users/anime/eclipse-workspace/Cucumber_Projects/orangeHRM_v1/src/test/java/features/EmployeeManagement.feature:30)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1108136194", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1108136194'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertTrue(Assert.java:56)
+	at org.testng.Assert.assertTrue(Assert.java:66)
+	at stepDefinitions.EmployeeManagementStepDefinition.the_document_should_be_uploaded_successfully(EmployeeManagementStepDefinition.java:172)
+	at ✽.the document should be uploaded successfully(file:///C:/Users/anime/eclipse-workspace/Cucumber_Projects/orangeHRM_v1/src/test/java/features/EmployeeManagement.feature:30)
 </pre></div></td>
-<td>9</td>
-<td>testRunner.TestNGRunner@54d9d12d</td></tr>
-<tr>
-<td title='testRunner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Edit employee details", "Employee Management"</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
-  (Session info: chrome=131.0.6778.86)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Build info: version: &apos;4.25.0&apos;, revision: &apos;8a8aea2337&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f64c86ed80a1cb8b80107c55f433dc4f, getElementText {id=f.BFC3435D5B7107EB6F2282A287AC1195.d.BE0B703F67F92D4E10C78AC3F3AE35C0.e.199}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.86, chrome: {chromedriverVersion: 131.0.6778.85 (3d81e41b6f3a..., userDataDir: C:\Users\anime\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55819}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55819/devtoo..., se:cdpVersion: 131.0.6778.86, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[[[ChromeDriver: chrome on windows (f64c86ed80a1cb8b80107c55f433dc4f)] -&gt; xpath: //div[@class=&apos;oxd-table-body&apos;]//div[contains(@class,&apos;oxd-table-row&apos;)]]] -&gt; xpath: .//div[2]]
-Session ID: f64c86ed80a1cb8b80107c55f433dc4f
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:191)
-	at pageObject.EmployeeManagementPage.processEmployeeList(EmployeeManagementPage.java:197)
-	at pageObject.EmployeeManagementPage.openEmployeeProfile(EmployeeManagementPage.java:227)
-	at stepDefinitions.EmployeeManagementStepDefinition.the_user_opens_the_employee_profile(EmployeeManagementStepDefinition.java:113)
-	at ✽.the user opens the employee profile of &quot;JD001&quot;(file:///C:/Users/anime/eclipse-workspace/Cucumber_Projects/orangeHRM_v1/src/test/java/features/EmployeeManagement.feature:20)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1655081931", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1655081931'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
-  (Session info: chrome=131.0.6778.86)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Build info: version: &apos;4.25.0&apos;, revision: &apos;8a8aea2337&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f64c86ed80a1cb8b80107c55f433dc4f, getElementText {id=f.BFC3435D5B7107EB6F2282A287AC1195.d.BE0B703F67F92D4E10C78AC3F3AE35C0.e.199}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.86, chrome: {chromedriverVersion: 131.0.6778.85 (3d81e41b6f3a..., userDataDir: C:\Users\anime\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55819}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55819/devtoo..., se:cdpVersion: 131.0.6778.86, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[[[ChromeDriver: chrome on windows (f64c86ed80a1cb8b80107c55f433dc4f)] -&gt; xpath: //div[@class=&apos;oxd-table-body&apos;]//div[contains(@class,&apos;oxd-table-row&apos;)]]] -&gt; xpath: .//div[2]]
-Session ID: f64c86ed80a1cb8b80107c55f433dc4f
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:191)
-	at pageObject.EmployeeManagementPage.processEmployeeList(EmployeeManagementPage.java:197)
-	at pageObject.EmployeeManagementPage.openEmployeeProfile(EmployeeManagementPage.java:227)
-	at stepDefinitions.EmployeeManagementStepDefinition.the_user_opens_the_employee_profile(EmployeeManagementStepDefinition.java:113)
-	at ✽.the user opens the employee profile of &quot;JD001&quot;(file:///C:/Users/anime/eclipse-workspace/Cucumber_Projects/orangeHRM_v1/src/test/java/features/EmployeeManagement.feature:20)
-</pre></div></td>
-<td>9</td>
+<td>89</td>
 <td>testRunner.TestNGRunner@54d9d12d</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -321,22 +145,12 @@ Session ID: f64c86ed80a1cb8b80107c55f433dc4f
 <tr>
 <td title='testRunner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search employee by invalid ID", "Employee Management"</td>
 <td></td>
-<td>8</td>
+<td>18</td>
 <td>testRunner.TestNGRunner@54d9d12d</td></tr>
 <tr>
-<td title='testRunner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User logs in with valid credentials", "User Accounts"</td>
+<td title='testRunner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Delete employee record", "Employee Management"</td>
 <td></td>
-<td>5</td>
-<td>testRunner.TestNGRunner@54d9d12d</td></tr>
-<tr>
-<td title='testRunner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User logs in with invalid credentials", "User Accounts"</td>
-<td></td>
-<td>5</td>
-<td>testRunner.TestNGRunner@54d9d12d</td></tr>
-<tr>
-<td title='testRunner.TestNGRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestNGRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User requests password reset", "User Accounts"</td>
-<td></td>
-<td>6</td>
+<td>42</td>
 <td>testRunner.TestNGRunner@54d9d12d</td></tr>
 </table><p>
 </body>
